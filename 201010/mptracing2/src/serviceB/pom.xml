@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fujitsu.launcher.demo201910</groupId>
+  <artifactId>serviceB</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>service-B</name>
+
+  <dependencies>
+  	<dependency>
+  		<groupId>org.eclipse.microprofile</groupId>
+  		<artifactId>microprofile</artifactId>
+  		<version>1.4</version>
+  		<scope>provided</scope>
+  		<type>pom</type>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.uber.jaeger</groupId>
+  		<artifactId>jaeger-tracerresolver</artifactId>
+  		<version>0.21.0</version>
+  	</dependency>
+  </dependencies>
+  <build>
+    <finalName>service-B</finalName>
+  </build>
+</project>
