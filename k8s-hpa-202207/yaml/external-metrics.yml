@@ -1,0 +1,18 @@
+rules:
+  default: false
+
+  external:
+  - seriesQuery: 'application_demo_total'
+        # - seriesQuery: '{__name__=~"^some_metric_count$"}'
+    resources:
+      template: <<.Resource>>
+    name:
+      matches: ""
+      as: "hpa_demo_metric"
+    metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
+
+prometheus:
+  url: http://prsrv-prometheus-server.prom.svc.cluster.local
+  port: 80
+
+

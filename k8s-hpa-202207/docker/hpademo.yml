@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hpa-app
+  labels:
+    app: hpa-app
+spec:
+  replicas: 1
+  selector:
+     matchLabels:
+       app: hpa-app
+  template:
+    metadata:
+       labels:
+         app: hpa-app
+       annotations:
+         prometheus.io/scrape: 'true'
+         prometheus.io/path: /metrics/application
+         prometheus.io/port: '8080'
+    spec:
+      containers:
+        - name: hpademo
+          image: hpa-demo
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hpa-app
+  name: hpa-app
+spec:
+  type: NodePort 
+  ports:
+    - name: "http"
+      protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+  selector:
+    app: hpa-app
+
+---
