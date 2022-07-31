@@ -9,7 +9,7 @@ MicroProfile Metricsから得られるアプリケーション固有メトリク
 
 ### 準備
 Launcherを```https://github.com/fujitsu/launcher/releases```からダウンロードする。
-以下の例では、launcher-4.0-RC1.jarを使用している。
+以下の例では、launcher-4.0.jarを使用している。
 
 ### アプリケーションのビルド
 
@@ -17,7 +17,7 @@ Launcherを```https://github.com/fujitsu/launcher/releases```からダウンロ�
 $ cd app
 $ mvn package
 $ cd ..
-$ java -jar launcher-4.0-RC1.jar --deploy app/target/hpa-0.1.war --generate hpa-uber.jar
+$ java -jar launcher-4.0.jar --deploy app/target/hpa-0.1.war --generate hpa-uber.jar
 $ docker build -t hpa-demo -f docker/Dockerfile .
 $ kubectl apply -f docker/hpademo.yml
 ```
