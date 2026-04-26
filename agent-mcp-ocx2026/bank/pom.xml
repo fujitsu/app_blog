@@ -1,0 +1,75 @@
+<!--
+    Copyright (c) 2026 Fujitsu Limited. All rights reserved.
+
+    SPDX-License-Identifier: Apache-2.0
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fujitsu.demo</groupId>
+  <artifactId>bank</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>bank</name>
+
+  <properties>
+    <java.version>25</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- MCP SDK -->  
+    <dependency>
+      <groupId>io.modelcontextprotocol.sdk</groupId>
+      <artifactId>mcp</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+	
+    <!-- Jakarta EE and MicroProfile API -->
+    <dependency>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-api</artifactId>
+      <version>11.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.microprofile.config</groupId>
+      <artifactId>microprofile-config-api</artifactId>
+      <version>3.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.microprofile.jwt</groupId>
+      <artifactId>microprofile-jwt-auth-api</artifactId>
+      <version>2.1</version>
+      <scope>provided</scope>
+    </dependency>
+	
+    <!-- GlassFish dependent API -->
+    <dependency>
+      <groupId>org.glassfish.main.common</groupId>
+      <artifactId>glassfish-api</artifactId>
+      <version>8.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+	
+  </dependencies>
+
+  <build>
+    <finalName>bank</finalName>
+    <plugins>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>	
+      </plugin>
+    </plugins>
+  </build>
+</project>
