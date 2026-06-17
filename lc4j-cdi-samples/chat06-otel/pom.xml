@@ -19,7 +19,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <lc4j.version>1.11.0</lc4j.version>
     <lc4j.cdi.version>1.0.0</lc4j.cdi.version>
-    <otel.version>1.49.0</otel.version>
+    <otel.version>1.62.0</otel.version>
   </properties>
   
   <dependencies>
